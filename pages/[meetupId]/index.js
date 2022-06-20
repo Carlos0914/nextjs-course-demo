@@ -6,7 +6,7 @@ import MeetupDetail from "../../components/meetups/MeetupDetail";
 const MeetupDetails = (props) => {
     return (
         <>
-            <Head>
+            <Head> 
                 <title>{props.meetupData.title}</title>
                 <meta name="description" content={props.meetupData.description} />
             </Head>
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
     client.close();
 
     return {
-        fallback: false,
+        fallback: 'blocking',
         paths: meetups.map((meetup) => ({
             params: {
                 meetupId: meetup._id.toString(),
